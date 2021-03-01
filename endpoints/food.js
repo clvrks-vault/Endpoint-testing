@@ -1,13 +1,10 @@
-async function endpoints(fastify, options) {
-    fastify.get('/:id', async(req, res) =>
-    {
-        res.send({
-            id: req.params.id,
-            pog: "True",
+export async function endpoints(app) {
+    app.get('/:id', async(req) => {
+        return { 
+            id: req.params.id, 
+            pog: "True", 
             unpog: "False"
-        })
-    })
-
+        }
+    });
 };
 
-module.exports = endpoints;

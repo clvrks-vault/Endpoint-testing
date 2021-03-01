@@ -1,14 +1,16 @@
 import fastify from "fastify";
+import endpoints from "./endpoints/food.js";
 
+app = fastify();
 
-fastify.register(require("./endpoints/food", {prefix: "/food"}));
+app.register(endpoints, {prefix: "/food"});
 
-
-fastify.listen(9999, function(err, address) {
-    if (err) {
+(async() => {
+    try {
+        app.listen(9999);
+        console.log('Server is up, port: 9999');
+    } catch (error) {
         console.log(err);
         process.exit(1);
-    } else {
-        console.log('Server is up, port: 9999')
     }
-});
+})();
