@@ -1,5 +1,5 @@
 export async function endpoints(app) {
-    app.get('/:id', async(req) => {
+    await app.get('/:id', async(req) => {
         return { 
             id: req.params.id, 
             pog: "True", 
